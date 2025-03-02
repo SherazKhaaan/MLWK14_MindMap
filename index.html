@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attention and Transformers Mind Map</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f8f9fa;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .mindmap {
+      position: relative;
+      width: 1200px;
+      height: 1100px;
+      margin: 20px 0;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .node {
+      position: absolute;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-weight: bold;
+    }
+    .node:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    /* Colors */
+    .red {
+      background-color: #ffcccc;
+      border: 2px solid #e60000;
+      color: #990000;
+    }
+    .blue {
+      background-color: #cce5ff;
+      border: 2px solid #0066cc;
+      color: #004080;
+    }
+    .green {
+      background-color: #ccffcc;
+      border: 2px solid #00cc00;
+      color: #006600;
+      font-weight: normal;
+    }
+    /* Info panel styles */
+    #infoPanel {
+      width: 1200px;
+      min-height: 150px;
+      padding: 15px;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: none;
+    }
+    .infoTitle {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .infoContent {
+      line-height: 1.5;
+    }
+    /* Legend styles */
+    .legend {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+    .legendItem {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .legendBox {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+    line {
+      stroke: #999;
+      stroke-width: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Attention and Transformers</h1>
+    
+    <div class="mindmap" id="mindmap">
+      <!-- SVG for connecting lines -->
+      <svg width="1200" height="1100" style="position: absolute; top: 0; left: 0;">
+        <!-- Lines from central red node (center at (600+125,425+25) = (725,450)) to each Blue Node -->
+        <line x1="725" y1="450" x2="175" y2="75" />      <!-- Blue Node 1: Motivation & Background -->
+        <line x1="725" y1="450" x2="1025" y2="75" />     <!-- Blue Node 2: Self-Attention Mechanism -->
+        <line x1="725" y1="450" x2="1175" y2="425" />     <!-- Blue Node 3: Transformer Architecture -->
+        <line x1="725" y1="450" x2="1025" y2="725" />     <!-- Blue Node 4: Transformers for NLP -->
+        <line x1="725" y1="450" x2="175" y2="725" />      <!-- Blue Node 5: Transformers Beyond NLP -->
+        
+        <!-- Lines from Blue Node 1 to its green nodes -->
+        <line x1="175" y1="75" x2="160" y2="135" />
+        <line x1="175" y1="75" x2="160" y2="195" />
+        
+        <!-- Lines from Blue Node 2 to its green nodes -->
+        <line x1="1025" y1="75" x2="1010" y2="135" />
+        <line x1="1025" y1="75" x2="1010" y2="195" />
+        <line x1="1025" y1="75" x2="1010" y2="255" />
+        
+        <!-- Lines from Blue Node 3 to its green nodes -->
+        <line x1="1175" y1="425" x2="1160" y2="485" />
+        <line x1="1175" y1="425" x2="1160" y2="545" />
+        <line x1="1175" y1="425" x2="1160" y2="605" />
+        
+        <!-- Lines from Blue Node 4 to its green nodes -->
+        <line x1="1025" y1="725" x2="1010" y2="785" />
+        <line x1="1025" y1="725" x2="1010" y2="845" />
+        <line x1="1025" y1="725" x2="1010" y2="955" />
+        
+        <!-- Lines from Blue Node 5 to its green nodes -->
+        <line x1="175" y1="725" x2="160" y2="785" />
+        <line x1="175" y1="725" x2="160" y2="845" />
+        <line x1="175" y1="725" x2="160" y2="905" />
+      </svg>
+      
+      <!-- Central Red Node -->
+      <div class="node red" style="width: 250px; top: 425px; left: 600px;" 
+           onclick="showInfo('Attention and Transformers', '&lt;ul&gt;&lt;li&gt;Learn to process long, variable text and image data via self-attention and transformer architectures.&lt;/li&gt;&lt;/ul&gt;')">
+        Attention and Transformers
+      </div>
+      
+      <!-- Blue Node 1: Motivation & Background -->
+      <div class="node blue" style="width: 250px; top: 50px; left: 50px;" 
+           onclick="showInfo('Motivation &amp; Background', '&lt;ul&gt;&lt;li&gt;Motivating the transformer:&lt;/li&gt;&lt;li&gt;Efficient processing of long text; parameter sharing; language ambiguity.&lt;/li&gt;&lt;/ul&gt;')">
+        Motivation &amp; Background
+      </div>
+      <!-- Green Nodes for Blue Node 1 -->
+      <div class="node green" style="width: 220px; top: 120px; left: 50px;" 
+           onclick="showInfo('Motivating the Transformer', '&lt;ul&gt;&lt;li&gt;Anecdote: Ham sandwich example highlights mismatch between food and service.&lt;/li&gt;&lt;/ul&gt;')">
+        Motivating the Transformer
+      </div>
+      <div class="node green" style="width: 220px; top: 180px; left: 50px;" 
+           onclick="showInfo('Input Variability &amp; Ambiguity', '&lt;ul&gt;&lt;li&gt;Variable input lengths and ambiguous language require parameter sharing and long-range dependency capture.&lt;/li&gt;&lt;/ul&gt;')">
+        Input Variability &amp; Ambiguity
+      </div>
+      
+      <!-- Blue Node 2: Self-Attention Mechanism -->
+      <div class="node blue" style="width: 250px; top: 50px; left: 900px;" 
+           onclick="showInfo('Self-Attention Mechanism', '&lt;ul&gt;&lt;li&gt;Dot-product self-attention computes value, query, and key vectors.&lt;/li&gt;&lt;li&gt;Scaled attention prevents large dot-product values.&lt;/li&gt;&lt;/ul&gt;')">
+        Self-Attention Mechanism
+      </div>
+      <!-- Green Nodes for Blue Node 2 -->
+      <div class="node green" style="width: 220px; top: 120px; left: 900px;" 
+           onclick="showInfo('Dot-product Self-Attention', '&lt;ul&gt;&lt;li&gt;Compute v = βv + Ωv x, and use queries and keys for weighted sum.&lt;/li&gt;&lt;/ul&gt;')">
+        Dot-product Self-Attention
+      </div>
+      <div class="node green" style="width: 220px; top: 180px; left: 900px;" 
+           onclick="showInfo('Scaled Attention', '&lt;ul&gt;&lt;li&gt;Scale dot-products by √(d) to stabilize softmax input.&lt;/li&gt;&lt;/ul&gt;')">
+        Scaled Attention
+      </div>
+      <div class="node green" style="width: 220px; top: 240px; left: 900px;" 
+           onclick="showInfo('Multi-head Self-Attention', '&lt;ul&gt;&lt;li&gt;Apply multiple self-attention heads in parallel, then concatenate and project.&lt;/li&gt;&lt;/ul&gt;')">
+        Multi-head Self-Attention
+      </div>
+      
+      <!-- Blue Node 3: Transformer Architecture -->
+      <div class="node blue" style="width: 250px; top: 400px; left: 1050px;" 
+           onclick="showInfo('Transformer Architecture', '&lt;ul&gt;&lt;li&gt;Transformer layers: incorporate self-attention, residual connections, and MLPs.&lt;/li&gt;&lt;li&gt;Positional encodings add order information.&lt;/li&gt;&lt;/ul&gt;')">
+        Transformer Architecture
+      </div>
+      <!-- Green Nodes for Blue Node 3 -->
+      <div class="node green" style="width: 220px; top: 470px; left: 1050px;" 
+           onclick="showInfo('Transformer Layers', '&lt;ul&gt;&lt;li&gt;Each layer adds residual connections and layer normalization.&lt;/li&gt;&lt;/ul&gt;')">
+        Transformer Layers
+      </div>
+      <div class="node green" style="width: 220px; top: 530px; left: 1050px;" 
+           onclick="showInfo('Positional Encodings', '&lt;ul&gt;&lt;li&gt;Absolute and relative positional encodings incorporate order into self-attention.&lt;/li&gt;&lt;/ul&gt;')">
+        Positional Encodings
+      </div>
+      <div class="node green" style="width: 220px; top: 590px; left: 1050px;" 
+           onclick="showInfo('Cross-Attention', '&lt;ul&gt;&lt;li&gt;Used in encoder-decoder models for machine translation.&lt;/li&gt;&lt;/ul&gt;')">
+        Cross-Attention
+      </div>
+      
+      <!-- Blue Node 4: Transformers for NLP -->
+      <div class="node blue" style="width: 250px; top: 650px; left: 900px;" 
+           onclick="showInfo('Transformers for NLP', '&lt;ul&gt;&lt;li&gt;Handle variable-length text via tokenization and embeddings.&lt;/li&gt;&lt;li&gt;Include encoder models (BERT), decoder models (GPT-3), and encoder-decoder models.&lt;/li&gt;&lt;/ul&gt;')">
+        Transformers for NLP
+      </div>
+      <!-- Green Nodes for Blue Node 4 -->
+      <div class="node green" style="width: 220px; top: 720px; left: 900px;" 
+           onclick="showInfo('Tokenization &amp; Embeddings', '&lt;ul&gt;&lt;li&gt;Sub-word tokenization (BPE) and word embeddings map tokens to vectors.&lt;/li&gt;&lt;/ul&gt;')">
+        Tokenization &amp; Embeddings
+      </div>
+      <div class="node green" style="width: 220px; top: 780px; left: 900px;" 
+           onclick="showInfo('Encoder Models (BERT)', '&lt;ul&gt;&lt;li&gt;BERT uses transformer encoders for contextualized representations.&lt;/li&gt;&lt;/ul&gt;')">
+        Encoder Models (BERT)
+      </div>
+      <div class="node green" style="width: 220px; top: 840px; left: 900px;" 
+           onclick="showInfo('Decoder Models &amp; Encoder-Decoder', '&lt;ul&gt;&lt;li&gt;GPT-3 and encoder-decoder architectures for autoregressive generation and translation.&lt;/li&gt;&lt;/ul&gt;')">
+        Decoder Models &amp; Encoder-Decoder
+      </div>
+      
+      <!-- Blue Node 5: Transformers Beyond NLP -->
+      <div class="node blue" style="width: 250px; top: 650px; left: 50px;" 
+           onclick="showInfo('Transformers Beyond NLP', '&lt;ul&gt;&lt;li&gt;Adapt transformers for long sequences and images.&lt;/li&gt;&lt;li&gt;Includes models like ImageGPT, ViT, and multiscale transformers.&lt;/li&gt;&lt;/ul&gt;')">
+        Transformers Beyond NLP
+      </div>
+      <!-- Green Nodes for Blue Node 5 -->
+      <div class="node green" style="width: 220px; top: 720px; left: 50px;" 
+           onclick="showInfo('Transformers for Long Sequences', '&lt;ul&gt;&lt;li&gt;Techniques to prune and sparsify self-attention for efficiency.&lt;/li&gt;&lt;/ul&gt;')">
+        Transformers for Long Sequences
+      </div>
+      <div class="node green" style="width: 220px; top: 780px; left: 50px;" 
+           onclick="showInfo('Transformers for Images (ImageGPT)', '&lt;ul&gt;&lt;li&gt;Autoregressive models for image pixels (ImageGPT).&lt;/li&gt;&lt;/ul&gt;')">
+        Transformers for Images (ImageGPT)
+      </div>
+      <div class="node green" style="width: 220px; top: 840px; left: 50px;" 
+           onclick="showInfo('Vision Transformers &amp; Multiscale', '&lt;ul&gt;&lt;li&gt;ViT and multiscale transformers (e.g. SWin, DaViT) for image classification.&lt;/li&gt;&lt;/ul&gt;')">
+        Vision Transformers &amp; Multiscale
+      </div>
+    </div>
+    
+    <!-- Information Panel -->
+    <div id="infoPanel">
+      <div class="infoTitle" id="infoTitle">Click on a concept to see details</div>
+      <div class="infoContent" id="infoContent">
+        Select any node in the mind map to display detailed information about that concept.
+      </div>
+    </div>
+    
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legendItem">
+        <div class="legendBox red"></div>
+        <span>Big Picture Concepts</span>
+      </div>
+      <div class="legendItem">
+        <div class="legendBox blue"></div>
+        <span>Major Categories</span>
+      </div>
+      <div class="legendItem">
+        <div class="legendBox green"></div>
+        <span>Components &amp; Details</span>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function showInfo(title, content) {
+      document.getElementById("infoPanel").style.display = "block";
+      document.getElementById("infoTitle").textContent = title;
+      document.getElementById("infoContent").innerHTML = content;
+    }
+  </script>
+</body>
+</html>
